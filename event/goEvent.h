@@ -218,6 +218,8 @@ void dispatch_proc_all(iohook_event * const event) {
 	size_t length = snprintf(buffer, sizeof(buffer),
 			"id=%i,when=%" PRIu64 ",mask=0x%X",
 			event->type, event->time, event->mask);
+	
+	hook_stop();
 
 	switch (event->type) {
 		case EVENT_KEY_PRESSED:
@@ -248,9 +250,11 @@ void dispatch_proc_all(iohook_event * const event) {
 				event->data.keyboard.keycode, event->data.keyboard.rawcode);
 				int akeycode = (uint16_t) event->data.keyboard.keycode;
 				// printf("atoi(str)---%d\n", atoi(cevent));
-				int astop = aStop();
-				// printf("%d\n",astop);
-				cstatus = 0;
+				if (akeycode == atoi(cevent)){
+					int astop = aStop();
+					// printf("%d\n",astop);
+					cstatus = 0;
+				}
 			break;
 
 		case EVENT_KEY_TYPED:
@@ -271,9 +275,11 @@ void dispatch_proc_all(iohook_event * const event) {
 					free (buf);
 				#endif
 
-				int astop = aStop();
-				// printf("%d\n",astop);
-				cstatus = 0;
+				if (strcmp(buf, cevent) == 0){
+					int astop = aStop();
+					// printf("%d\n",astop);
+					cstatus = 0;
+				}
 				// return (char*) event->data.keyboard.keychar;
 			break;
 
