@@ -620,11 +620,6 @@ func AddEvent(aeve string) int {
 	return geve
 }
 
-// AddAllEvents add event listener
-func AddAllEvents() int {
-	return int(C.aAllEvents())
-}
-
 // StopEvent stop event listener
 func StopEvent() {
 	C.aStop()
