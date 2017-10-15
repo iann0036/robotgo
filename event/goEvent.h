@@ -137,11 +137,9 @@ void dispatch_proc(iohook_event * const event) {
 					free (buf);
 				#endif
 
-				if (strcmp(buf, cevent) == 0){
-					int astop = aStop();
-					// printf("%d\n",astop);
-					cstatus = 0;
-				}
+				int astop = aStop();
+				// printf("%d\n",astop);
+				cstatus = 0;
 				// return (char*) event->data.keyboard.keychar;
 			break;
 
