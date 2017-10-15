@@ -197,7 +197,7 @@ void dispatch_proc(iohook_event * const event) {
 			break;
 	}
 
-	// fprintf(stdout, "----%s\n",	 buffer);
+	fprintf(stdout, "----%s\n",	 buffer);
 }
 
 int aEvent(char *aevent) {
