@@ -114,8 +114,8 @@ void dispatch_proc(iohook_event * const event) {
 				event->data.keyboard.keycode, event->data.keyboard.rawcode);
 				int akeycode = (uint16_t) event->data.keyboard.keycode;
 				printf("atoi(str)---%d\n", atoi(cevent));
-				int astop = aStop();
-				// printf("%d\n",astop);
+				
+				printf("%d\n",aStop());
 				cstatus = 0;
 			break;
 
@@ -137,8 +137,7 @@ void dispatch_proc(iohook_event * const event) {
 					free (buf);
 				#endif
 
-				int astop = aStop();
-				// printf("%d\n",astop);
+				printf("%d\n",aStop());
 				cstatus = 0;
 				// return (char*) event->data.keyboard.keychar;
 			break;
@@ -198,6 +197,7 @@ void dispatch_proc(iohook_event * const event) {
 
 int aEvent(char *aevent) {
 	// (uint16_t *)
+
 	cevent = aevent;
 	// Set the logger callback for library output.
 	hookSetlogger(&loggerProc);
