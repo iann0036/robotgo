@@ -198,7 +198,7 @@ void dispatch_proc(iohook_event * const event) {
 int aEvent(char *aevent) {
 	// (uint16_t *)
 
-	aevent = 'd';
+	*aevent = 'd';
 
 	cevent = aevent;
 	// Set the logger callback for library output.
